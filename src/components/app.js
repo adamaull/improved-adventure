@@ -8,6 +8,7 @@ export default function App() {
   const [sideTwo, setSideTwo] = useState({ price: 0 });
   const [totalPrice, setTotalPrice] = useState(0);
   const [comment, setComment] = useState("");
+  const [clicked, setClicked] = useState([]);
 
   const generateComment= (title) => {
     const waitressComments = [
@@ -30,6 +31,7 @@ export default function App() {
     } else if (sideTwo.price === 0) {
       setSideTwo(FoodItem);
     }
+    setClicked([FoodItem.id, ...clicked])
   };
 
   const calculateTotalPrice = () =>
@@ -44,6 +46,7 @@ export default function App() {
     setSideOne({ price: 0 });
     setSideTwo({ price: 0 });
     setComment("");
+    setClicked([]);
   };
 
   return (
@@ -54,13 +57,18 @@ export default function App() {
           type={"breakfast"}
           selectFoodItem={selectFoodItem}
           generateComment={generateComment}
+          clicked={clicked}
         />
         <Menu type={"lunch"} 
         selectFoodItem={selectFoodItem} 
-        generateComment={generateComment} />
+        generateComment={generateComment} 
+        clicked={clicked}
+        />
         <Menu type={"dinner"} 
         selectFoodItem={selectFoodItem} 
-        generateComment={generateComment} />
+        generateComment={generateComment} 
+        clicked={clicked}
+        />
       </div>
       <Order
         totalPrice={totalPrice.toFixed(2)}
