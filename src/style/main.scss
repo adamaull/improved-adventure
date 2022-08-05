@@ -1,0 +1,41 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "montserrat";
+  background: #0d3026;
+  color: white;
+}
+
+.app {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+
+  .diner-title {
+    text-align: center;
+    font-size: 70px;
+    font-family: "Life Savers", cursive;
+    margin: 0;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+  }
+
+  .all-menus {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .waitress-comment {
+    text-align: center;
+    font-family: "Atma", cursive;
+    font-size: 25px;
+  }
+}
+
+@import "./menu.scss";
+@import "./foodItem.scss";
+@import "./order.scss";
